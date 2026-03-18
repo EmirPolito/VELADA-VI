@@ -7,10 +7,10 @@ import HeroSection from "../components/HeroSection";
 
 export default function Home() {
   const navLinks = [
-    { label: "HOME", href: "/" },
-    { label: "COMBATES", href: "/combates" },
-    { label: "STREAM", href: "/stream" },
-    { label: "INFO", href: "/info" },
+          { label: "INICIO",   href: "/" },
+          { label: "PELEAS",   href: "/peleas" },
+          { label: "ENTRADAS", href: "/entradas" },
+          { label: "NOTICIAS", href: "/noticias" },
   ];
 
   return (

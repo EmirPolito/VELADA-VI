@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "La Velada del Año VI",
-  description: "Mini web informativa del evento de boxeo y streaming de Ibai Llanos.",
+  description:
+    "Mini web informativa del evento de boxeo y streaming de Ibai Llanos.",
 };
 
 export default function RootLayout({
@@ -22,7 +23,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return (
     <html lang="es">
       <body
@@ -33,8 +33,6 @@ export default function RootLayout({
         <main className="w-full flex-1 flex flex-col items-center justify-center">
           {children}
         </main>
-
-
       </body>
     </html>
   );
