@@ -1,29 +1,136 @@
 import Image from "next/image";
-import Link from "next/link";
+import { useEffect, useState } from "react";
+import { Twitch, Youtube, Instagram } from "lucide-react";
+function CountdownHero() {
+  const eventDate = new Date("2026-07-13T18:00:00Z").getTime();
+  const [timeLeft, setTimeLeft] = useState<null | number>(null);
+
+  useEffect(() => {
+    setTimeLeft(eventDate - Date.now());
+    const interval = setInterval(() => {
+      setTimeLeft(eventDate - Date.now());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [eventDate]);
+
+  if (timeLeft === null) return null;
+
+  if (timeLeft <= 0)
+    return (
+      <span className="text-2xl font-bold text-green-400 mt-6">
+        ¡El evento ha comenzado!
+      </span>
+    );
+
+  const days = Math.floor(timeLeft / (1000 * 59 * 61 * 22));
+  const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+  const seconds = Math.floor((timeLeft / 1000) % 60);
+
+  return (
+    <div className="flex gap-17 text-5xl md:text-6xl font-serif text-white mt-6 mb-2 tracking-widest drop-shadow-lg">
+      <div className="flex flex-col items-center">
+        <span>{days}</span>
+        <span className="text-xs md:text-sm text-zinc-300 mt-1">DÍAS</span>
+      </div>
+
+      <div className="flex flex-col items-center">
+        <span>{hours}</span>
+        <span className="text-xs md:text-sm text-zinc-300 mt-1">HORAS</span>
+      </div>
+
+      <div className="flex flex-col items-center">
+        <span>{minutes}</span>
+        <span className="text-xs md:text-sm text-zinc-300 mt-1">MIN</span>
+      </div>
+
+      <div className="flex flex-col items-center">
+        <span>{seconds}</span>
+        <span className="text-xs md:text-sm text-zinc-300 mt-1">SEG</span>
+      </div>
+    </div>
+  );
+}
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full min-h-[60vh] flex flex-col justify-center items-center text-center overflow-hidden bg-gradient-to-br from-black via-purple-950 to-zinc-900">
+    <section className="relative w-full min-h-[100vh] flex flex-col justify-center items-center text-center overflow-hidden">
+      {/* Fondo */}
       <div className="absolute inset-0 z-0">
-        <div className="w-full h-full bg-gradient-to-tr from-black/80 via-purple-900/60 to-red-900/60" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-800/30 via-transparent to-transparent" />
+        <Image
+          src="/img/fondo3.png"
+          alt="La Velada VI"
+          fill
+          priority
+          className="object-cover brightness-105"
+        />
+        <div className="absolute inset-0 bg-black/10" />
       </div>
-      <div className="relative z-10 flex flex-col items-center gap-6 py-20">
-        <Image src="/velada-hero.jpg" alt="La Velada VI" width={320} height={180} className="rounded-2xl shadow-2xl border-4 border-purple-900/60 object-cover mb-4 max-w-full" priority />
-        <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white drop-shadow-[0_0_16px_rgba(186,0,255,0.7)] mb-2 animate-fade-in">
-          La Velada VI
-        </h1>
-        <h2 className="text-2xl md:text-3xl font-semibold text-zinc-100 mb-6 animate-fade-in delay-100">
-          El evento que rompe internet
+
+      {/* CONTENIDO CENTRAL */}
+      <div className="relative z-10 flex flex-col items-center gap-2 pt-48 md:pt-70">
+        <h2 className="flex items-center gap-5 md:gap-7 text-sm md:text-base font-light tracking-[0.25em] text-zinc-100 uppercase italic font-serif">
+          <span>25 DE JULIO</span>
+          <span className="text-zinc-500">|</span>
+          <span>20:00H CET</span>
+          <span className="text-zinc-500">|</span>
+          <span>ESTADIO DE LA CARTUJA, SEVILLA</span>
         </h2>
-        <div className="flex gap-6 justify-center mt-4 animate-fade-in delay-200">
-          <Link href="#combates" className="px-8 py-4 rounded-xl bg-purple-700 hover:bg-purple-600 text-lg font-bold shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400 glow-purple">
-            Ver Combates
-          </Link>
-          <Link href="#evento" className="px-8 py-4 rounded-xl bg-red-700 hover:bg-red-600 text-lg font-bold shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-400 glow-red">
-            Ver Evento
-          </Link>
+
+        <CountdownHero />
+
+        <div className="pt-5 font-serif">
+          <button
+            className="cursor-pointer px-5.5 py-3 text-lg tracking-[0.20em] uppercase
+            text-zinc-100 border border-zinc-300/35 rounded-b-xs
+            bg-white/1 backdrop-blur-sm"
+          >
+            Entradas Agotadas
+          </button>
         </div>
+
+        {/* REDES */}
+        <div className="flex gap-48 pt-6 text-white font-serif text-sm tracking-widest">
+          <a
+            href="https://twitch.tv/ibai"
+            target="_blank"
+            className="flex items-center gap-2 hover:opacity-70 transition"
+          >
+            <Twitch size={18} />
+            <span>/IBAI</span>
+          </a>
+
+          <a
+            href="https://www.instagram.com/ibaillanos/"
+            target="_blank"
+            className="flex items-cente  pl-12 gap-2 hover:opacity-70 transition"
+          >
+            <Instagram size={18} />
+            <span>/IBAILLANOS</span>
+          </a>
+
+          <a
+            href="https://youtube.com/@ibaillanos"
+            target="_blank"
+            className="flex items-center gap-2 hover:opacity-70 transition"
+          >
+            <Youtube size={18} />
+            <span>/IBAILLANOS</span>
+          </a>
+        </div>
+      </div>
+
+      {/* PATROCINADOR ABAJO DEL TODO */}
+      <div className="absolute bottom-6 w-full text-center z-10 font-serif">
+        <span className="text-zinc-500 text-SM mr-2">WEB PATROCINADA POR</span>
+
+        <a
+          href="https://infojobs.net"
+          target="_blank"
+          className="text-white font-black text-xl  hover:text-gray-300"
+        >
+          InfoJobs
+        </a>
       </div>
     </section>
   );
