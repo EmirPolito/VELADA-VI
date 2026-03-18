@@ -10,7 +10,7 @@ export default function Noticias() {
         logoText=""
         navLinks={[
           { label: "INICIO",   href: "/" },
-          { label: "PELEAS",   href: "/peleas" },
+          { label: "COMBATES",   href: "/combates" },
           { label: "ENTRADAS", href: "/entradas" },
           { label: "NOTICIAS", href: "/noticias" },
         ]}

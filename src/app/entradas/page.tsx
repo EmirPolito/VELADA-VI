@@ -10,7 +10,7 @@ export default function Entradas() {
         logoText=""
         navLinks={[
           { label: "INICIO",   href: "/" },
-          { label: "PELEAS",   href: "/peleas" },
+          { label: "PELEAS",   href: "/combates" },
           { label: "ENTRADAS", href: "/entradas" },
           { label: "NOTICIAS", href: "/noticias" },
         ]}
