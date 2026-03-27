@@ -1,3 +1,9 @@
+## 📄 Desarrollador
+**Emir Polito**
+- Frontend Developer (React / Next.js)
+- GitHub: https://github.com/EmirPolito
+
+
 # 🥊 La Velada del Año VI — Mini Web
 
 Proyecto fan-made desarrollado como práctica de frontend para simular una web de evento con alto tráfico.
@@ -30,12 +36,12 @@ Este proyecto fue desarrollado con el objetivo de:
 
 ## 📄 Páginas
 
-| Ruta        | Descripción |
-|------------|------------|
-| `/`        | Landing principal con hero animado |
-| `/combates`| Cartelera completa con animaciones al hacer scroll |
-| `/entradas`| Información de precios y acceso |
-| `/noticias`| Noticias, horario y dónde ver el evento |
+| Ruta        | Descripción                                        |
+| ----------- | -------------------------------------------------- |
+| `/`         | Landing principal con hero animado                 |
+| `/combates` | Cartelera completa con animaciones al hacer scroll |
+| `/entradas` | Información de precios y acceso                    |
+| `/noticias` | Noticias, horario y dónde ver el evento            |
 
 ---
 
@@ -70,7 +76,5 @@ src/
 │   ├── header.tsx
 │   └── HeroSection.tsx
 
+---
 
-**Emir Polito**  
--Frontend Developer (React / Next.js)
-- GitHub: https://github.com/EmirPolito
