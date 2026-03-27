@@ -1,7 +1,8 @@
-## 📄 Desarrollador
+## Desarrollador
 **Emir Polito**
 - Frontend Developer (React / Next.js)
 - GitHub: https://github.com/EmirPolito
+- Linkedin: https://www.linkedin.com/in/emir-polito-g/
 
 
 # 🥊 La Velada del Año VI — Mini Web
